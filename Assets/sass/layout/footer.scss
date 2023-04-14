@@ -1,0 +1,35 @@
+footer {
+    background-color: $grioms-sbre;
+    padding: 3em 0;
+
+    & .SectionFooter {
+        color: white;
+        display: flex;
+        justify-content: flex-end;
+
+        & h2 {
+            font-family: 'Shrikhand';
+            font-style: italic;
+            color: white;
+            font-weight: 400;
+            font-size: 18px;
+            order: 1;
+            padding: 0 4em;
+        }
+
+        & ul {
+            display: flex;
+            flex-flow: row;
+
+            & li {
+                padding: 0 1em;
+
+                i {
+                    padding: 0 1em 0 0;
+                }
+            }
+        }
+    }
+
+
+}

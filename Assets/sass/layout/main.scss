@@ -1,0 +1,235 @@
+main {
+    font-family: 'Roboto', sans-serif;
+
+    & .SectionSearch {
+        @extend %centerElement;
+        padding: 1em;
+        background: #eaeaea;
+        background: linear-gradient(180deg,
+                rgba(173, 173, 173, .35) 0%,
+                rgba(234, 234, 234, .75) 15%,
+                rgba(234, 234, 234, 1) 100%);
+
+        & i {
+            padding: 0 0.5em 0 0;
+        }
+    }
+
+    & .SectionTop {
+        @extend %centerElement;
+        padding: 2em 0 3em;
+        background: #f6f6f6;
+        text-align: center;
+
+        & h2 {
+            padding: 0 5em;
+        }
+
+        & p {
+            padding: 1em 5em 2em;
+        }
+
+        & a {
+            width: 30%;
+            margin: auto;
+        }
+    }
+
+    & .SectionFonct {
+        padding: 0 16em 5em 16em;
+
+        & h3 {
+            padding: 2em 0;
+        }
+
+        & ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1em;
+
+            & li {
+                background: $gris-clair;
+                border: 2px solid #D9D9D9;
+                border-radius: 25px;
+                padding: 1em;
+                position: relative;
+
+                & span {
+                    padding: 2px 7px;
+                    ;
+                    background: $violet-primaire;
+                    color: #D9D9D9;
+                    position: absolute;
+                    left: -10px;
+                    border-radius: 25px;
+                }
+
+                & i {
+                    padding: 0 20px;
+                }
+            }
+        }
+
+    }
+
+
+
+
+    & .SectionResto {
+        background: $gris-clair;
+        padding: 2em 16em;
+
+        & ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2em;
+            padding-top: 3em;
+
+            & li {
+                background: #FFFFFF;
+                box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 20px;
+                position: relative;
+
+                & .cardImg {
+                    height: 10em;
+                    position: relative;
+
+                    & img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 20px 20px 0 0;
+                    }
+
+                    & .NewResto {
+                        background: $vert-clair;
+                        position: absolute;
+                        right: 1em;
+                        top: 1em;
+                        padding: 9px;
+                        color: $txt-fond-vert;
+                    }
+                }
+
+                & .cardInfo {
+                    display: grid;
+                    position: relative;
+
+                    & h3,
+                    & p {
+                        padding-left: 20px;
+                    }
+
+                    & h3 {
+                        padding-top: 20px;
+                    }
+
+                    & p {
+                        padding-bottom: 20px;
+                    }
+
+                    & .cardFav {
+                        position: absolute;
+                        right: 1em;
+                        top: 2em;
+                    }
+                }
+            }
+
+
+        }
+
+    }
+
+    & .ImgResto {
+        & img {
+            height: 20em;
+            width: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    & .MenuResto {
+        padding: 0 8em;
+        padding-bottom: 4em;
+        margin: 0 17em;
+        background: $gris-clair;
+        box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+
+        & h2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 3em 0;
+
+            & i {
+                padding-left: 1em;
+            }
+        }
+
+        & h3 {
+            @extend %border-bottom-h3;
+            text-transform: uppercase;
+        }
+
+        & ul {
+            padding-bottom: 2em;
+
+            & li {
+                padding: 1em;
+                background: white;
+                box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
+                border-radius: 15px;
+                margin: 1em 0;
+                position: relative;
+                overflow: hidden;
+
+                & strong {
+                    position: absolute;
+                    right: 1em;
+                    bottom: 1em;
+
+                }
+
+                & span {
+                    width: 5em;
+                    height: 100%;
+                    position: absolute;
+                    background: $vert-clair;
+                    right: -5rem;
+                    top: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                }
+            }
+
+            & li:hover {
+                transition: all 0.5s;
+
+
+                & strong {
+                    transition: 0.5s;
+                    right: 6rem;
+                }
+
+                & span {
+
+                    right: 0;
+                    transition: 0.5s;
+                }
+            }
+        }
+
+        & .btn {
+            @extend %centerElement;
+            width: 13%;
+            margin: auto;
+        }
+    }
+
+}
