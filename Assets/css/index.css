@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
-main .MenuResto .btn, main .SectionTop, main .SectionSearch, header {
+main .MenuResto .btn, main .MenuResto, main .SectionFonct, main .SectionTop, main .SectionSearch, header {
   display: grid;
   align-items: center;
   justify-content: center;
@@ -52,43 +52,96 @@ main .SectionTop a {
   margin: auto;
 }
 main .SectionFonct {
-  padding: 0 16em 5em 16em;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 3em 1em;
 }
-main .SectionFonct h3 {
+@media screen and (min-width: 768px) {
+  main .SectionFonct {
+    padding: 0em 10rem 3rem 10rem;
+  }
+}
+@media screen and (min-width: 1236px) {
+  main .SectionFonct {
+    padding: 0em 10rem 3rem 10rem;
+  }
+}
+main .SectionFonct h2 {
   padding: 2em 0;
 }
 main .SectionFonct ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1em;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2em;
+  margin: 1em 1em 0;
+  counter-reset: Fonctcompteur;
 }
-main .SectionFonct ul li {
-  background: #e2e2e2;
-  border: 2px solid #D9D9D9;
-  border-radius: 25px;
-  padding: 1em;
+@media screen and (min-width: 768px) {
+  main .SectionFonct ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1236px) {
+  main .SectionFonct ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+main .SectionFonct ul li p {
+  display: inline-block;
   position: relative;
-}
-main .SectionFonct ul li span {
-  padding: 2px 7px;
-  background: #9356DC;
-  color: #D9D9D9;
-  position: absolute;
-  left: -10px;
-  border-radius: 25px;
+  left: -0.5em;
 }
 main .SectionFonct ul li i {
-  padding: 0 20px;
+  padding: 0 1em 0 0;
+}
+main .SectionFonct ul li::before {
+  position: relative;
+  left: -2em;
+  counter-increment: Fonctcompteur;
+  content: counter(Fonctcompteur);
+  padding: 0.3em 0.6em;
+  border-radius: 70%;
+  color: white;
+  background-color: #9356DC;
+}
+main .SectionFonct ul li:hover {
+  background-color: #f2eafb;
+}
+main .SectionFonct ul li:hover i {
+  color: #9356DC;
 }
 main .SectionResto {
   background: #e2e2e2;
-  padding: 2em 16em;
+}
+@media screen and (min-width: 768px) {
+  main .SectionResto {
+    padding: 1em 10rem;
+  }
+}
+@media screen and (min-width: 1236px) {
+  main .SectionResto {
+    padding: 1em 10rem;
+  }
 }
 main .SectionResto ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2em;
   padding-top: 3em;
+}
+@media screen and (min-width: 768px) {
+  main .SectionResto ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1236px) {
+  main .SectionResto ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 main .SectionResto ul li {
   background: #FFFFFF;
@@ -132,24 +185,51 @@ main .SectionResto ul li .cardInfo .cardFav {
   right: 1em;
   top: 2em;
 }
-main .ImgResto img {
-  height: 20em;
+main .MenuResto {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0 0 3em;
+  background-color: #f6f6f6;
+}
+@media screen and (min-width: 768px) {
+  main .MenuResto {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1236px) {
+  main .MenuResto {
+    padding: 0;
+  }
+}
+main .MenuResto__img {
+  margin: 0 0 -5em 0;
   width: 100%;
+  height: 20em;
   object-fit: cover;
 }
-main .MenuResto {
-  padding: 0 8em;
-  padding-bottom: 4em;
-  margin: 0 17em;
-  background: #e2e2e2;
-  box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
+main .MenuResto__menu {
+  padding: 2em 1em 0;
+  border-radius: 3em 3em 0 0;
+  background-color: #e2e2e2;
+}
+@media screen and (min-width: 768px) {
+  main .MenuResto__menu {
+    margin: 0 7rem;
+    padding: 2em 4em;
+  }
+}
+@media screen and (min-width: 1236px) {
+  main .MenuResto__menu {
+    margin: 0 7rem;
+    padding: 2em 4em;
+  }
 }
 main .MenuResto h2 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 3em 0;
+  font-family: "Shrikhand", cursive;
+  position: relative;
 }
 main .MenuResto h2 i {
   padding-left: 1em;
@@ -159,12 +239,13 @@ main .MenuResto h3 {
 }
 main .MenuResto ul {
   padding-bottom: 2em;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 0.5em;
 }
 main .MenuResto ul li {
   padding: 1em;
   background: white;
-  box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
   margin: 1em 0;
   position: relative;
   overflow: hidden;
@@ -173,28 +254,39 @@ main .MenuResto ul li strong {
   position: absolute;
   right: 1em;
   bottom: 1em;
+  transition: all 0.5s;
 }
 main .MenuResto ul li span {
-  width: 5em;
-  height: 100%;
   position: absolute;
-  background: #99e2d0;
-  right: -5rem;
   top: 0;
+  right: -5rem;
+  width: 5rem;
+  height: 100%;
+  font-size: 1.5em;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  background: #99e2d0;
+  transition: all 0.5s;
+}
+main .MenuResto ul li span .fa-check-circle {
+  transform: rotate(-360deg);
+  transition: all 0.5s;
 }
 main .MenuResto ul li:hover {
   transition: all 0.5s;
 }
 main .MenuResto ul li:hover strong {
   transition: 0.5s;
-  right: 6rem;
+  right: 6.5rem;
 }
 main .MenuResto ul li:hover span {
   right: 0;
   transition: 0.5s;
+}
+main .MenuResto ul li:hover span i {
+  transform: rotate(0deg);
 }
 main .MenuResto .btn {
   width: 13%;
@@ -203,12 +295,10 @@ main .MenuResto .btn {
 
 footer {
   background-color: #353535;
-  padding: 3em 0;
+  padding: 1em;
 }
 footer .SectionFooter {
   color: white;
-  display: flex;
-  justify-content: flex-end;
 }
 footer .SectionFooter h2 {
   font-family: "Shrikhand";
@@ -217,17 +307,38 @@ footer .SectionFooter h2 {
   font-weight: 400;
   font-size: 18px;
   order: 1;
-  padding: 0 4em;
+  padding: 0 0 1rem 0;
 }
 footer .SectionFooter ul {
-  display: flex;
-  flex-flow: row;
+  display: grid;
 }
 footer .SectionFooter ul li {
-  padding: 0 1em;
+  padding: 0 0 0.3rem 0;
 }
 footer .SectionFooter ul li i {
   padding: 0 1em 0 0;
+}
+@media screen and (min-width: 768px) {
+  footer .SectionFooter {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 2rem 0 0 0;
+  }
+  footer .SectionFooter h2 {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+  }
+  footer .SectionFooter ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 0 3em 0 0;
+  }
+  footer .SectionFooter ul li {
+    padding: 0;
+  }
 }
 
 .btn {
@@ -243,5 +354,46 @@ footer .SectionFooter ul li i {
 }
 .btn:hover {
   opacity: 0.8;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+}
+
+.cardFav .cardFav-away,
+.RestoFav .cardFav-away {
+  display: block;
+  transform: scale(1);
+  transition: all 1s;
+  font-size: x-large;
+}
+.cardFav .cardFav-hover,
+.RestoFav .cardFav-hover {
+  display: block;
+  position: absolute;
+  top: 0;
+  transform: scale(0);
+  transition: all 1s;
+  font-size: x-large;
+  background-image: linear-gradient(0deg, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cardFav:hover .cardFav-away,
+.RestoFav:hover .cardFav-away {
+  opacity: 0;
+  transform: scale(0);
+}
+.cardFav:hover .cardFav-hover,
+.RestoFav:hover .cardFav-hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.list-item {
+  padding: 1.5em 1em;
+  text-align: left;
+  border-radius: 1em;
   box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
 }

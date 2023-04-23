@@ -1,11 +1,9 @@
 footer {
     background-color: $grioms-sbre;
-    padding: 3em 0;
+    padding: 1em;
 
     & .SectionFooter {
         color: white;
-        display: flex;
-        justify-content: flex-end;
 
         & h2 {
             font-family: 'Shrikhand';
@@ -14,15 +12,14 @@ footer {
             font-weight: 400;
             font-size: 18px;
             order: 1;
-            padding: 0 4em;
+            padding: 0 0 1rem 0;
         }
 
         & ul {
-            display: flex;
-            flex-flow: row;
+            display: grid;
 
             & li {
-                padding: 0 1em;
+                padding: 0 0 0.3rem 0;
 
                 i {
                     padding: 0 1em 0 0;
@@ -31,5 +28,30 @@ footer {
         }
     }
 
+    @media screen and (min-width: 768px) {
 
+        & .SectionFooter {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 2rem 0 0 0;
+
+            & h2 {
+                display: flex;
+                justify-content: flex-end;
+                padding: 0;
+            }
+
+            & ul {
+                display: flex;
+                justify-content: flex-end;
+                gap: 1rem;
+                padding: 0 3em 0 0;
+
+                & li {
+                    padding: 0;
+                }
+            }
+        }
+    }
 }

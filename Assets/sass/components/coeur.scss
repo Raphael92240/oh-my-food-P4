@@ -1,0 +1,38 @@
+.cardFav,
+.RestoFav {
+    & .cardFav-away {
+        display: block;
+        transform: scale(1);
+        transition: all 1s;
+        font-size: x-large;
+    }
+
+    & .cardFav-hover {
+        display: block;
+        position: absolute;
+        top: 0;
+        transform: scale(0);
+        transition: all 1s;
+        font-size: x-large;
+
+        background-image: linear-gradient(0deg, $rose-secondaire, $violet-primaire);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+.cardFav:hover,
+.RestoFav:hover {
+    & .cardFav-away {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    & .cardFav-hover {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

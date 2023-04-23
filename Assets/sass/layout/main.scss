@@ -36,54 +36,99 @@ main {
     }
 
     & .SectionFonct {
-        padding: 0 16em 5em 16em;
+        @extend %centerElement;
+        @include grid-template(1);
+        padding: 3em 1em;
 
-        & h3 {
+        @media screen and (min-width: $responsive-tablette) {
+            padding: 0em 10rem 3rem 10rem;
+        }
+
+
+        @media screen and (min-width: $responsive-desktop) {
+            padding: 0em 10rem 3rem 10rem;
+        }
+
+        & h2 {
             padding: 2em 0;
         }
 
         & ul {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1em;
+            @include grid-template(1);
+            gap: 2em;
+            margin: 1em 1em 0;
+            counter-reset: Fonctcompteur;
+
+            @media screen and (min-width: $responsive-tablette) {
+                @include grid-template(2);
+            }
+
+
+            @media screen and (min-width: $responsive-desktop) {
+                @include grid-template(3);
+            }
 
             & li {
-                background: $gris-clair;
-                border: 2px solid #D9D9D9;
-                border-radius: 25px;
-                padding: 1em;
-                position: relative;
 
-                & span {
-                    padding: 2px 7px;
-                    ;
-                    background: $violet-primaire;
-                    color: #D9D9D9;
-                    position: absolute;
-                    left: -10px;
-                    border-radius: 25px;
+                & p {
+                    display: inline-block;
+                    position: relative;
+                    left: -0.5em;
                 }
 
                 & i {
-                    padding: 0 20px;
+                    padding: 0 1em 0 0;
+                }
+            }
+
+            & li::before {
+                position: relative;
+                left: -2em;
+                counter-increment: Fonctcompteur;
+                content: counter(Fonctcompteur);
+                padding: .3em .6em;
+                border-radius: 70%;
+                color: white;
+                background-color: $violet-primaire;
+
+            }
+
+            & li:hover {
+                background-color: lighten($violet-primaire, 35%);
+
+                & i {
+                    color: $violet-primaire;
                 }
             }
         }
 
     }
 
-
-
-
     & .SectionResto {
         background: $gris-clair;
-        padding: 2em 16em;
+
+        @media screen and (min-width: $responsive-tablette) {
+            padding: 1em 10rem;
+        }
+
+
+        @media screen and (min-width: $responsive-desktop) {
+            padding: 1em 10rem;
+        }
 
         & ul {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            @include grid-template(1);
             gap: 2em;
             padding-top: 3em;
+
+            @media screen and (min-width: $responsive-tablette) {
+                @include grid-template(2);
+            }
+
+
+            @media screen and (min-width: $responsive-desktop) {
+                @include grid-template(2);
+            }
 
             & li {
                 background: #FFFFFF;
@@ -142,28 +187,53 @@ main {
 
     }
 
-    & .ImgResto {
-        & img {
-            height: 20em;
+    & .MenuResto {
+
+        @extend %centerElement;
+        @include grid-template(1);
+        padding: 0 0 3em;
+        background-color: #f6f6f6;
+
+        @media screen and (min-width: $responsive-tablette) {
+            padding: 0;
+        }
+
+
+        @media screen and (min-width: $responsive-desktop) {
+            padding: 0;
+        }
+
+        &__img {
+            margin: 0 0 -5em 0;
             width: 100%;
+            height: 20em;
             object-fit: cover;
         }
 
-    }
+        &__menu {
+            padding: 2em 1em 0;
+            border-radius: 3em 3em 0 0;
+            background-color: $gris-clair;
 
-    & .MenuResto {
-        padding: 0 8em;
-        padding-bottom: 4em;
-        margin: 0 17em;
-        background: $gris-clair;
-        box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
-        border-radius: 15px;
+            @media screen and (min-width: $responsive-tablette) {
+                margin: 0 7rem;
+                padding: 2em 4em;
+            }
+
+
+            @media screen and (min-width: $responsive-desktop) {
+                margin: 0 7rem;
+                padding: 2em 4em;
+            }
+
+        }
 
         & h2 {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            padding: 3em 0;
+            font-family: 'Shrikhand', cursive;
+            position: relative;
 
             & i {
                 padding-left: 1em;
@@ -177,12 +247,12 @@ main {
 
         & ul {
             padding-bottom: 2em;
+            @include grid-template(1);
+            grid-gap: 0.5em;
 
             & li {
                 padding: 1em;
                 background: white;
-                box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
-                border-radius: 15px;
                 margin: 1em 0;
                 position: relative;
                 overflow: hidden;
@@ -191,20 +261,27 @@ main {
                     position: absolute;
                     right: 1em;
                     bottom: 1em;
-
+                    transition: all 0.5s;
                 }
 
                 & span {
-                    width: 5em;
-                    height: 100%;
                     position: absolute;
-                    background: $vert-clair;
-                    right: -5rem;
                     top: 0;
+                    right: -5rem;
+                    width: 5rem;
+                    height: 100%;
+                    font-size: 1.5em;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    color: white;
+                    background: $vert-clair;
+                    transition: all 0.5s;
 
+                    & .fa-check-circle {
+                        transform: rotate(-360deg);
+                        transition: all 0.5s;
+                    }
                 }
             }
 
@@ -214,13 +291,16 @@ main {
 
                 & strong {
                     transition: 0.5s;
-                    right: 6rem;
+                    right: 6.5rem;
                 }
 
                 & span {
-
                     right: 0;
                     transition: 0.5s;
+
+                    & i {
+                        transform: rotate(0deg);
+                    }
                 }
             }
         }
@@ -231,5 +311,4 @@ main {
             margin: auto;
         }
     }
-
 }
