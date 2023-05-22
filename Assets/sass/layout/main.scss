@@ -50,7 +50,7 @@ main {
         }
 
         & h2 {
-            padding: 2em 0;
+            padding: 1em 0;
         }
 
         & ul {
@@ -116,10 +116,15 @@ main {
             padding: 1em 10rem;
         }
 
+        & h2 {
+            padding: 1rem;
+        }
+
         & ul {
             @include grid-template(1);
             gap: 2em;
             padding-top: 3em;
+            padding: 1rem;
 
             @media screen and (min-width: $responsive-tablette) {
                 @include grid-template(2);
@@ -191,7 +196,6 @@ main {
 
         @extend %centerElement;
         @include grid-template(1);
-        padding: 0 0 3em;
         background-color: #f6f6f6;
 
         @media screen and (min-width: $responsive-tablette) {
@@ -211,7 +215,7 @@ main {
         }
 
         &__menu {
-            padding: 2em 1em 0;
+            padding: 2em 1em;
             border-radius: 3em 3em 0 0;
             background-color: $gris-clair;
 
@@ -234,6 +238,7 @@ main {
             justify-content: center;
             font-family: 'Shrikhand', cursive;
             position: relative;
+            padding: 0 0 0 1rem;
 
             & i {
                 padding-left: 1em;
@@ -256,6 +261,23 @@ main {
                 margin: 1em 0;
                 position: relative;
                 overflow: hidden;
+
+                & h4 {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    transition: all 0.5s;
+                    width: 80%;
+                }
+
+                & p {
+                    width: 80%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    transition: all 0.5s;
+
+                }
 
                 & strong {
                     position: absolute;
@@ -283,11 +305,49 @@ main {
                         transition: all 0.5s;
                     }
                 }
+
+            }
+
+            & .list-item {
+                opacity: 0;
+                animation: apparitionlist 1000ms forwards;
+
+                @for $i from 1 to 10 {
+                    &--#{$i} {
+                        animation-delay: 200ms * $i;
+                    }
+                }
             }
 
             & li:hover {
                 transition: all 0.5s;
 
+
+                & h4 {
+                    width: 60%;
+
+                    @media screen and (min-width: $responsive-tablette) {
+                        width: 70%;
+                    }
+
+
+                    @media screen and (min-width: $responsive-desktop) {
+                        width: 90%;
+                    }
+                }
+
+                & p {
+                    width: 60%;
+
+                    @media screen and (min-width: $responsive-tablette) {
+                        width: 70%;
+                    }
+
+
+                    @media screen and (min-width: $responsive-desktop) {
+                        width: 90%;
+                    }
+                }
 
                 & strong {
                     transition: 0.5s;
